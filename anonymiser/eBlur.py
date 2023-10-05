@@ -5,9 +5,13 @@ import os
 import sys
 import cv2
 # import face_recognition
+# importing numpy as geek  
+import numpy as np 
 
 # to detect the face of the human 
-cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml") 
+# cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml") 
+cascadeFront = cv2.CascadeClassifier("lbpcascade_frontalface_improved.xml") 
+cascadeProfile = cv2.CascadeClassifier("lbpcascade_profileface.xml") 
 
 def face_blur(src_img, dest_img, zoom_in=1):
     '''
@@ -30,11 +34,26 @@ def face_blur(src_img, dest_img, zoom_in=1):
     # neighbours each rectangle should have to retain it. 
     # rectangle consists the detect object. 
     # Here the object is the face. 
-    face_locations = cascade.detectMultiScale( 
+    face_locationsFront = cascadeFront.detectMultiScale( 
 		  gray_image, scaleFactor=1.05,
       minNeighbors=20, minSize=(30, 30),
       flags=cv2.CASCADE_SCALE_IMAGE)
-
+    face_locationsProfile = cascadeProfile.detectMultiScale( 
+		  gray_image, scaleFactor=1.05,
+      minNeighbors=20, minSize=(30, 30),
+      flags=cv2.CASCADE_SCALE_IMAGE) 
+    face_locations = np.concatenate((face_locationsFront , face_locationsProfile), axis = 0)
+    
+    if hasattr(face_locationsFront,'size'):
+        print("%s:There are %s faces at " % (src_img, len(face_locationsFront)), face_locationsFront)
+    else:
+        print('%s:There are no faces in the photo.' % (src_img))
+        return False
+    if hasattr(face_locationsProfile,'size'):
+        print("%s:There are %s faces at " % (src_img, len(face_locationsProfile)), face_locationsProfile)
+    else:
+        print('%s:There are no faces in the photo.' % (src_img))
+        return False
     if hasattr(face_locations,'size'):
         print("%s:There are %s faces at " % (src_img, len(face_locations)), face_locations)
     else:
