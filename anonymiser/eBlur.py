@@ -31,7 +31,9 @@ def face_blur(src_img, dest_img, zoom_in=1):
     # rectangle consists the detect object. 
     # Here the object is the face. 
     face_locations = cascade.detectMultiScale( 
-		  gray_image, scaleFactor=1.1, minNeighbors=9) 
+		  gray_image, scaleFactor=1.05,
+      minNeighbors=20, minSize=(30, 30),
+      flags=cv2.CASCADE_SCALE_IMAGE)
 
     if hasattr(face_locations,'size'):
         print("%s:There are %s faces at " % (src_img, len(face_locations)), face_locations)
