@@ -9,8 +9,11 @@
       "type": "python",
       "request": "launch",
       "program": "anonymiser\\eBlur.py",
-      "args": ["\"E:\\Photos\\Library\\Photo Albums 540\\Joya school year festival 2023\\DSC00300_20230526_0110.jpg\"",
-      "C:\\Users\\elia\\Desktop\\to_share\\20231004_193642_XXX.jpg"],
+      "args": [
+        // "\"E:\\Photos\\Library\\Photo Albums 540\\Joya school year festival 2023\\DSC00300_20230526_0110.jpg\"",
+        "\"C:\\Users\\elia\\Desktop\\to_share\\test\\Photo_00019.jpg\"",
+        "C:\\Users\\elia\\Desktop\\to_share_X\\0110.jpg"
+      ],
       "console": "integratedTerminal",
       "justMyCode": true
     }

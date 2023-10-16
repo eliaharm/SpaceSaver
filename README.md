@@ -7,3 +7,5 @@ python eBlur.py C:\Users\elia\Desktop\to_share\ C:\Users\elia\Desktop\to_share_X
 pip install opencv-python
 
 C:\Users\elia\Desktop\to_share\Photo_00019.jpg
+
+<https://github.com/serengil/deepface>
