@@ -6,7 +6,7 @@ import shutil
 import sys
 import cv2
 import numpy as np
-from deepface import DeepFace
+from deepface_cv2 import DeepFace
 
 # import face_recognition
 
