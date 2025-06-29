@@ -4,7 +4,8 @@ for /F "tokens=*" %%A in (Photos.txt) do (
 echo %%~nA %%~xA
 for %%B in ("%%A\..") do (
 mkdir "E:\Photos\tmp_photos\%%~nxB" 2>nul
-ptime magick convert "%%~A"  -colorspace RGB -filter Lanczos  -define filter:blur=0.88451002338585141  -define filter:lobes=2 -resize "2200x2200>" -colorspace sRGB -normalize -sigmoidal-contrast 0.5 -colorspace HCL -channel g -sigmoidal-contrast 0.5,0%% +channel -colorspace sRGB +repage  -quality 92 "E:\Photos\tmp_photos\%%~nxB\%%~nA.jpg"
+ptime magick convert "%%~A"  -colorspace RGB -filter Lanczos  -define filter:blur=0.88451002338585141  -define filter:lobes=2 -resize "2200x2200>" -colorspace sRGB -normalize -sigmoidal-contrast 0.3 -colorspace HCL -channel g -sigmoidal-contrast 0.3,0%% +channel -colorspace sRGB +repage  -quality 92 "E:\Photos\tmp_photos\%%~nxB\%%~nA.jpg"
+@REM ptime magick convert "%%~A"  -colorspace RGB -filter Lanczos  -define filter:blur=0.88451002338585141  -define filter:lobes=2 -resize "2200x2200>" -colorspace sRGB -normalize -sigmoidal-contrast 0.5 -colorspace HCL -channel g -sigmoidal-contrast 0.5,0%% +channel -colorspace sRGB +repage  -quality 92 "E:\Photos\tmp_photos\%%~nxB\%%~nA.jpg"
 )
 )
 REM C:\PortableApps\ImageMagick-7.0.8-10-portable-Q16-x64\convert.exe "%%~A" -normalize -sigmoidal-contrast 2.5 -colorspace HCL -channel g -sigmoidal-contrast 2.5,0%% +channel -colorspace sRGB +repage  -colorspace RGB -filter Lanczos -define filter:lobes=2 -define filter:blur=0.88451002338585141 -resize "2200x2200>" -colorspace sRGB -quality 92 "D:\Photos\tmp_photos\%%~nxB\%%~nA.jpg"
