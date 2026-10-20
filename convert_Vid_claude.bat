@@ -6,7 +6,7 @@ for /F "tokens=*" %%A in (videos.txt) do (
     for %%B in ("%%A\..") do (
         ptime ffmpeg -i "%%~A" ^
             -map 0:v:0 ^
-            -map 0:a ^
+            -map 0:a? ^
             -map 0:s? ^
             -vf "scale=-2:720" ^
             -c:v hevc_nvenc ^
