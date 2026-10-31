@@ -12,7 +12,7 @@ for /F "tokens=*" %%A in (videos.txt) do (
             -vf "scale=-2:1080:flags=lanczos" ^
             -c:v hevc_nvenc ^
             -rc vbr ^
-            -cq 27 ^
+            -cq 25 ^
             -b:v 0 ^
             -preset p5 ^
             -tier high ^
