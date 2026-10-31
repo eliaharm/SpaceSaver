@@ -9,7 +9,7 @@ for /F "tokens=*" %%A in (videos.txt) do (
             -map 0:v:0 ^
             -map 0:a ^
             -map 0:2 ^
-            -vf "scale=-2:720" ^
+            -vf "scale=-2:720:flags=lanczos" ^
             -c:v hevc_nvenc ^
             -rc vbr ^
             -cq 28 ^
